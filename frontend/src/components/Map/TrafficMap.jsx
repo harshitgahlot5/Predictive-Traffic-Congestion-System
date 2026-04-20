@@ -58,8 +58,8 @@ export default function TrafficMap({ trafficData = [], predictions = {}, onLocat
   const center = [12.9716, 77.5946]; // Bengaluru center
   
   const tileUrl = theme === 'light' 
-    ? "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
-    : "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png";
+    ? "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+    : "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
 
   return (
     <div className="traffic-map-container" id="traffic-map">
@@ -67,7 +67,7 @@ export default function TrafficMap({ trafficData = [], predictions = {}, onLocat
         zoomControl={true} attributionControl={false}>
         <TileLayer
           url={tileUrl}
-          attribution='&copy; Stadia Maps'
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         />
 
         {trafficData.length > 0 && <MapBounds locations={trafficData} />}
